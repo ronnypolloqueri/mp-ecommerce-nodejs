@@ -96,16 +96,27 @@ app.post('/notifications', function (req, res) {
 });
 
 app.get('/success', function (req, res) {
-    console.log(req.query)
-    res.render('success', req.query);
+    const payload = {
+        ...req.query,
+        site_url: SITE_URL
+    }
+    res.render('success', payload);
 });
 
 app.get('/failure', function (req, res) {
-    res.render('failure', req.query);
+    const payload = {
+        ...req.query,
+        site_url: SITE_URL
+    }
+    res.render('failure', payload);
 });
 
 app.get('/pending', function (req, res) {
-    res.render('pending', req.query);
+    const payload = {
+        ...req.query,
+        site_url: SITE_URL
+    }
+    res.render('pending', payload);
 });
 
 app.listen(port);

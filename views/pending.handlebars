@@ -61,7 +61,7 @@
                                     </h3>
                                 </div>
                                 <h3>
-                                    Informacion del pago
+                                    Información del pago
                                 </h3>
                                 <h3>
                                     Payment method id: {{ collection_id }}
@@ -73,7 +73,7 @@
                                     Payment id: {{ payment_id }}
                                 </h3>
                                 <h3>
-                                    Informacion adicional del pago
+                                    Información adicional del pago
                                 </h3>
                                 <h3>
                                     Collection status: {{ collection_status }}
@@ -115,7 +115,7 @@
 
     const paymentButton = document.getElementById("store")
     paymentButton.addEventListener('click', () => {
-        const siteUrl = 
+        const siteUrl = document.getElementById('site-url').value;
         window.location.href = siteUrl;
     });
 
