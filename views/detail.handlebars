@@ -6,7 +6,7 @@
                 <div class="pd-billboard pd-category-header">
                     <div class="pd-l-plate-scale">
                         <div class="pd-billboard-background">
-                            <img id="product-image" src="./assets/music-audio-alp-201709" alt="" width="1440" height="320" data-scale-params-2="wid=2880&amp;hei=640&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1503948581306" class="pd-billboard-hero ir">
+                            <img src="./assets/music-audio-alp-201709" alt="" width="1440" height="320" data-scale-params-2="wid=2880&amp;hei=640&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1503948581306" class="pd-billboard-hero ir">
                         </div>
                         <div class="pd-billboard-info">
                             <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce</h1>
@@ -54,7 +54,7 @@
                                     <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
                                         <div class="as-tilegallery-element as-image-selected">
                                             <div class=""></div>
-                                            <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url({{ img }}) 2x);">
+                                            <img id="product-image" data-img="{{img}}" src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url({{ img }}) 2x);">
                                         </div>
                                         
                                     </div>
@@ -101,6 +101,9 @@
 
     const paymentButton = document.getElementById("mercadopago-payment")
     paymentButton.addEventListener('click', () => {
+        const siteUrl = document.getElementById('site-url').value;
+        const notificationUrl = `${siteUrl}/notifications`
+
         const payer = {
             name: "Lalo",
             surname: "Landa",
@@ -119,7 +122,8 @@
         const productId = 1234;
         const productName = document.getElementById('product-name').innerHTML.trim();
         const productDescription = "Dispositivo móvil de Tienda e-commerce";
-        const productPictureUrl = document.getElementById('product-image').src;
+        const imagePath = document.getElementById('product-image').dataset.img;
+        const productPictureUrl = siteUrl + imagePath.slice(1, imagePath.length);
         const productPrice = parseFloat(document.getElementById('product-price').innerHTML.trim());
         const productQuantity = 1;
         console.log('productPictureUrl',productPictureUrl)
@@ -134,9 +138,6 @@
         }
 
         const externalReference = document.getElementById('external-reference').value;
-
-        const siteUrl = document.getElementById('site-url').value;
-        const notificationUrl = `${siteUrl}/notifications`
 
         const data = {
             item: item,
