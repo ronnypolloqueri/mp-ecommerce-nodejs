@@ -96,6 +96,7 @@ app.post('/notifications', function (req, res) {
 });
 
 app.get('/success', function (req, res) {
+    console.log(req.query)
     res.render('success', req.query);
 });
 
