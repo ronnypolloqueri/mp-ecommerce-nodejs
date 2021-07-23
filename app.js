@@ -38,15 +38,12 @@ app.get('/detail', function (req, res) {
 });
 
 app.post('/create-preference', async (req, res) => {
-    console.log('create-preference', req.body)
     const {
         item,
         payer,
         notificationUrl,
         externalReference
     } = req.body
-    
-    console.log('itemm...', item);
     
     let preference = {
         items: [
@@ -67,8 +64,10 @@ app.post('/create-preference', async (req, res) => {
         payment_methods: {
             excluded_payment_methods: [
                 {
-                    id: "dinners"
-                },
+                    id: "diners"
+                }
+            ],
+            excluded_payment_types: [
                 {
                     id: "atm"
                 }
