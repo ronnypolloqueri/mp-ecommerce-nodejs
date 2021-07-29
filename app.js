@@ -2,7 +2,7 @@ var express = require('express');
 var exphbs  = require('express-handlebars');
 const mercadopago = require('mercadopago');
 
-const ACCESS_TOKEN = process.env.ACCESS_TOKEN || "APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439";
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN || "APP_USR-334491433003961-030821-12d7475807d694b645722c1946d5ce5a-725736327";
 const INTEGRATOR_ID = process.env.INTEGRATOR_ID || 'dev_24c65fb163bf11ea96500242ac130004';
 const INTEGRATOR_EMAIL = process.env.INTEGRATOR_EMAIL;
 const SITE_URL = process.env.SITE_URL || "http://localhost:3000";
@@ -64,12 +64,7 @@ app.post('/create-preference', async (req, res) => {
         payment_methods: {
             excluded_payment_methods: [
                 {
-                    id: "diners"
-                }
-            ],
-            excluded_payment_types: [
-                {
-                    id: "atm"
+                    id: "amex"
                 }
             ],
             installments: 6
